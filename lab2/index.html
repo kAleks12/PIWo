@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <title>ToDo list</title>
+</head>
+
+<body>
+<main>
+    <div class="intro">
+        <h1>Welcome to ToDoLater, where you can manage all the things you need to do, but maybe later ;)</h1>
+    </div>
+
+
+    <div class="main-view">
+        <div class="list-table-container">
+            <h1>Your lists:</h1>
+
+            <select id="list-table" class="list-table round" onchange="selectList()">
+                <option value="Daily">Daily</option>
+                <option value="Urgent">Urgent</option>
+                <option value="Future goals">Future goals</option>
+            </select>
+        </div>
+
+        <div class="task-add-container">
+            <input id="add-task" class="task-add-input round" type="text" placeholder="Fill me with task...">
+
+            <button onclick="addElement()">
+                Add
+            </button>
+        </div>
+
+        <div id="task-list" class="task-list round">
+            <h2>Your tasks on current list:</h2>
+        </div>
+    </div>
+</main>
+
+<dialog id="delete-dialog">
+    <div>
+        <div class="dialog-container">
+            <div class="dialog-header">
+                <div class="delete-dialog-text">
+                    <h2>Do you wish for this task to </h2>
+                    <h2 class="red-text">cease to exist </h2>
+                    <h2>???</h2>
+                </div>
+            </div>
+
+            <div class="dialog-body">
+                <button id="confirm-button" class="delete-button">
+                    Yes, I am a monster
+                </button>
+                <button id="cancel-button" onclick="closeDialog()">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<script src="./script.js"></script>
+</body>
+
+</html>

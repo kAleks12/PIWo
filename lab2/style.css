@@ -1,0 +1,208 @@
+:root {
+    --large-font-size: 1.2rem;
+
+    --primary-button-color: #a0d2eb;
+    --task-background-color: antiquewhite;
+    --done-task-background-color: rgb(161, 212, 148);
+
+    --dialog-background: rgba(0, 0, 0, 0.5);
+    --dialog-content-background: bisque;
+    --delete-button-color: lightcoral;
+    --urgent-text-color: red;
+}
+
+* {
+    font-size: var(--large-font-size);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button, input, .task {
+    padding: 1rem;
+    border: none;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+html {
+    background-color: antiquewhite;
+}
+
+button {
+    background-color: var(--primary-button-color);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+input {
+    width: 80%;
+}
+
+input:focus {
+    outline: none;
+}
+
+main > div {
+    min-width: 30vw;
+}
+
+dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--dialog-background);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+dialog > div:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+
+.delete-button {
+    background-color: var(--delete-button-color);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.round {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+
+.intro {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.main-view {
+    display: grid;
+    row-gap: 0.3rem;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr) 0.4fr repeat(8,1fr);
+    padding: 1rem 4rem 0 4rem;
+    background-color:  #a4b6dd;
+    background-clip: content-box;
+}
+
+.task-list {
+    grid-column: 2/3;
+    grid-row: 5/13;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow-y: auto;
+}
+
+.list-table-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    position: relative;
+}
+
+.list-table {
+    border: none;
+    padding: 0.5rem 1rem;
+    width: 80%;
+}
+
+.list-table:focus {
+    outline: none;
+}
+
+.task-add-container {
+    display: flex;
+    flex-direction: row;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.task {
+    cursor: pointer;
+    background-color: var(--task-background-color);
+    position: relative;
+}
+
+.task > button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.task > p:first-of-type {
+    word-break: break-word;
+    max-width: 85%;
+}
+
+.done-task {
+    background-color: var(--done-task-background-color);
+}
+
+.done-task > p:first-of-type {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dialog-content-background);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.dialog-body {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.delete-dialog-text {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+}
+
+.hidden-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    border-top-left-radius: 0.5rem;
+}
+
+.hidden-container > button {
+    visibility: hidden;
+}
+
+.hidden-container:hover > button {
+    visibility: visible;
+}
