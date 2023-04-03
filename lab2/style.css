@@ -190,19 +190,3 @@ dialog > div:first-of-type {
     flex-direction: row;
     gap: 0.3rem;
 }
-
-.hidden-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    border-top-left-radius: 0.5rem;
-}
-
-.hidden-container > button {
-    visibility: hidden;
-}
-
-.hidden-container:hover > button {
-    visibility: visible;
-}

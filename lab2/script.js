@@ -24,7 +24,7 @@ const createTask = (text) => {
 
     task.type = selectedList;
     task.classList.add('task', 'round');
-    task.onclick = () => toggleDone(task);
+    task.onclick = () => toggleTask(task);
     task.id = taskId;
 
     taskId++;
@@ -53,17 +53,17 @@ const deleteButtonClick = (e, task) => {
     e.stopPropagation();
 
     $('#confirm-button').off('click').click(() => {
-        $(`#${task.id}`).remove();
+        $(task).remove();
         deletedTask = task;
-        closeDialog();
+        closePrompt();
     });
 
     $('#delete-dialog').show();
 }
 
-const closeDialog = () => $('#delete-dialog').hide();
+const closePrompt = () => $('#delete-dialog').hide();
 
-const toggleDone = (task) => {
+const toggleTask = (task) => {
     const isDone = task.classList.toggle('done-task');
 
     if (!isDone) {
@@ -96,7 +96,7 @@ $(document).keypress('Z', (e) => {
         return;
     }
 
-    deletedTask.classList.remove('done', 'deleted-todo'); //!
+    deletedTask.classList.remove('deleted-todo');
 
     removeDate(deletedTask);
     taskList.appendChild(deletedTask);
@@ -109,19 +109,4 @@ $(document).on('keypress',function(e) {
     }
 
     addElement();
-});
-
-const selectList = () => {
-    const list = document.getElementById('list-table').value;
-    const allTasks = document.querySelectorAll('.task');
-
-    allTasks.forEach(task => {
-        if (task.type === list) {
-            task.style.display = 'block';
-            return;
-        }
-
-        task.style.display = 'none';
-    });
-    selectedList = list;
-}
+})
