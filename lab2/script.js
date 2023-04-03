@@ -7,6 +7,22 @@ let selectedList = document.getElementById('list-table').value;
 const taskList = document.getElementById('task-list');
 const taskInput = document.getElementById('add-task');
 
+const changeList = () => {
+    const list = document.getElementById('list-table').value;
+    const allTasks = document.querySelectorAll('.task');
+
+    allTasks.forEach(task => {
+        if (task.type === list) {
+            task.style.display = 'block';
+            return;
+        }
+
+        task.style.display = 'none';
+    });
+
+    selectedList = list;
+}
+
 const addElement = () => {
     const text = taskInput.value;
 

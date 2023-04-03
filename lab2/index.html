@@ -22,7 +22,7 @@
         <div class="list-table-container">
             <h1>Your lists:</h1>
 
-            <select id="list-table" class="list-table round" onchange="selectList()">
+            <select id="list-table" class="list-table round" onchange="changeList()">
                 <option value="Daily">Daily</option>
                 <option value="Urgent">Urgent</option>
                 <option value="Future goals">Future goals</option>
@@ -58,7 +58,7 @@
                 <button id="confirm-button" class="delete-button">
                     Yes, I am a monster
                 </button>
-                <button id="cancel-button" onclick="closeDialog()">
+                <button id="cancel-button" onclick="closePrompt()">
                     No
                 </button>
             </div>
