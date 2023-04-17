@@ -1,0 +1,8 @@
+.button-container {
+    display: flex;
+  }
+  
+  .button-container button:first-of-type {
+    margin-right: 10px;
+  }
+  

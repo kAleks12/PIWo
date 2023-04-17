@@ -1,0 +1,15 @@
+.property-image {
+    /*make this image be 20% of his original size*/
+    width: 20%;
+    /*make this image be 20% of his original size*/
+    height: 20%;
+    /*make this image be 20% of his original size*/
+    object-fit: cover;
+    /*make this image be 20% of his original size*/
+    border-radius: 50%;
+    /*make this image be 20% of his original size*/
+    margin-right: 10px;
+    /*make a border around image*/
+    border: 2px solid black;
+    
+}
