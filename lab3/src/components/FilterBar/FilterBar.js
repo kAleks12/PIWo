@@ -10,9 +10,9 @@ function FilterBar(props) {
     } = props;
 
     return (
-        <div>
-            <form className="filter-form">
-                <label className="form-label">
+        <div className="filter-bar-container">
+            <div className="filter-bar">
+                <label className="filter-label">
                     Sort by price:
                     <select value={sortBy} onChange={handleSortChange}>
                         <option value="">---</option>
@@ -20,19 +20,22 @@ function FilterBar(props) {
                         <option value="desc">Descending</option>
                     </select>
                 </label>
-                <label className="form-label">
+
+                <label className="filter-label">
                     Filter by price:
-                    <input type="number" value={priceFilter} min="0" onChange={handlePriceFilterChange} />
+                    <input type="number" value={priceFilter} min="0" onChange={handlePriceFilterChange}/>
                 </label>
-                <label className="form-label">
+
+                <label className="filter-label">
                     Filter by number of rooms:
-                    <input type="number" value={roomsFilter} min="0" onChange={handleRoomsFilterChange} />
+                    <input type="number" value={roomsFilter} min="0" onChange={handleRoomsFilterChange}/>
                 </label>
-                <label className="form-label">
+
+                <label className="filter-label">
                     Filter by city:
-                    <input type="text" value={cityFilter} onChange={handleCityFilterChange} />
+                    <input type="text" value={cityFilter} onChange={handleCityFilterChange}/>
                 </label>
-            </form>
+            </div>
         </div>
     );
 }

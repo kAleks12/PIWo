@@ -28,29 +28,35 @@ function AddProperty({handler}) {
   };
 
   return (
-    <div>
-      <h1>Add new property</h1>
-      <form className="property-form" onSubmit={handleSubmit}>
-        <label className="label-form">
+    <div className="listing-form-container">
+      <h1>Add new listing</h1>
+
+      <form className="listing-form" onSubmit={handleSubmit}>
+        <label className="property">
           City:
           <input type="text" value={city} onChange={(event) => setCity(event.target.value)} />
         </label>
-        <label className="label-form">
+
+        <label className="property">
           Address:
           <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
         </label>
-        <label className="label-form">
+
+        <label className="property">
           Number of bedrooms:
           <input type="number" value={bedrooms} min="0" onChange={(event) => setBedrooms(event.target.value)} />
         </label>
-        <label className="label-form">
+
+        <label className="property">
           Price:
           <input type="number" value={price} min="0" onChange={(event) => setPrice(event.target.value)} />
         </label>
-        <label className="label-form">
+
+        <label className="property">
           Description:
-          <textarea value={description} onChange={(event) => setDescription(event.target.value)} />
+          <textarea rows={10} value={description} onChange={(event) => setDescription(event.target.value)} />
         </label>
+
         <button type="submit" className="btn btn-outline-dark" onClick={handleSubmit}>Add</button>
       </form>
     </div>

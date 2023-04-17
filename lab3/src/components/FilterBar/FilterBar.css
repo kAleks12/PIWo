@@ -1,12 +1,22 @@
-.filter-form {
+
+
+.filter-bar {
     display: flex;
     flex-direction: row;
     place-content: center;
-    justify-content: space-around;
-    margin: 1rem;
+    padding: 1rem;
+    max-width: 80vw;
+    column-gap: 2rem;
+    align-self: center;
 }
 
-.form-label {
+.filter-label {
     display: flex;
     flex-direction: column;
+    font-weight: bold;
+}
+
+.filter-bar-container {
+    display: flex;
+    justify-content: center;
 }

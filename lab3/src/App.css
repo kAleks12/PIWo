@@ -1,3 +1,7 @@
+:root {
+  --main-blue: #A5B3ff;
+}
+
 .App {
   text-align: center;
 }
@@ -28,15 +32,10 @@
   color: #61dafb;
 }
 
-.filter-form {
-  display: flex;
-  flex-direction: row;
-  place-content: center;
-  justify-content: space-around;
-  margin: 1rem;
+input, select, textarea {
+  width: 100%;
+  border: 1px var(--main-blue) solid ;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
-.form-label {
-  display: flex;
-  flex-direction: column;
-}
