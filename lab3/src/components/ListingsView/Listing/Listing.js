@@ -1,6 +1,6 @@
 import React from 'react';
 
-import pic from "./house4.jpg";
+import pic from "./apartment.jpg";
 import './Listing.css';
 import {BiMoneyWithdraw} from "react-icons/bi";
 import {BsGeoAltFill, BsHousesFill} from "react-icons/bs";
