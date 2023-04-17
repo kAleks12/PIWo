@@ -1,8 +1,13 @@
-import {useNavigate} from "react-router-dom";
 import React from "react";
+import "./FilterBar.css"
 
-function Filter() {
-    const navigate = useNavigate();
+function FilterBar(props) {
+    const {
+        sortBy, handleSortChange,
+        priceFilter, handlePriceFilterChange,
+        roomsFilter, handleRoomsFilterChange,
+        cityFilter, handleCityFilterChange
+    } = props;
 
     return (
         <div>
@@ -32,4 +37,4 @@ function Filter() {
     );
 }
 
-export default Filter;
+export default FilterBar;

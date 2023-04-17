@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './PropertyForm.css';
+import './AddListing.css';
 
 function AddProperty({handler}) {
   const navigate = useNavigate();

@@ -1,8 +1,8 @@
 import React from 'react';
 import pic from "./house4.jpg";
-import './Property.css';
+import './Listing.css';
 
-function Property({ image, price, bedrooms, description, address }) {
+function Listing({ image, price, bedrooms, description, address }) {
   return (
     <div>
       <img src={pic} alt="property" className="property-image" />
@@ -14,4 +14,4 @@ function Property({ image, price, bedrooms, description, address }) {
   );
 }
 
-export default Property;
+export default Listing;

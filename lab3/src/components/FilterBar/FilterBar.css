@@ -1,0 +1,12 @@
+.filter-form {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.form-label {
+    display: flex;
+    flex-direction: column;
+}
