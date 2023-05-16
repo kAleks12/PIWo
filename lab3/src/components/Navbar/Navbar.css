@@ -1,8 +1,18 @@
 .button-container {
     display: flex;
-  }
-  
-  .button-container button:first-of-type {
+}
+
+.button-container button:first-of-type {
     margin-right: 10px;
-  }
-  
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-logged {
+    font-size: 1.2rem;
+    margin-right: 25px;
+    color: #fff;
+}

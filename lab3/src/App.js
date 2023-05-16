@@ -1,7 +1,6 @@
-import propertiesData from './data/properties.json';
-
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route, Routes} from 'react-router';
+import axios from 'axios';
 
 import './App.css';
 
@@ -9,14 +8,28 @@ import ListingsList from './components/ListingsView/ListingsList';
 import PropertyForm from './components/AddingForm/AddListing';
 import Navbar from './components/Navbar/Navbar';
 import FilterBar from './components/FilterBar/FilterBar'
+import {UserHandler} from './components/LoginPage/UserContext';
+import LoginForm from "./components/LoginPage/LoginForm";
 
 
 function App() {
+    const propertiesData = []
+
     const [sortBy, setSortBy] = useState('');
     const [priceFilter, setPriceFilter] = useState('');
     const [roomsFilter, setRoomsFilter] = useState('');
     const [cityFilter, setCityFilter] = useState('');
     const [properties, setProperties] = useState(propertiesData);
+
+    useEffect(() => {
+        axios.get('/init_data/properties.json')
+            .then(response => {
+                setProperties(response.data);
+            })
+            .catch(error => {
+                console.error('Error occurred while loading properties: ', error);
+            });
+    }, []);
 
     const handleNewPropertySubmit = (newProperty) => {
         setProperties([...properties, newProperty]);
@@ -62,30 +75,34 @@ function App() {
 
 
     return (
-        <div className="App">
-            <Routes>
-                <Route exact path="/" element={
-                    <>
-                        <Navbar/>
-                        <FilterBar
-                            sortBy={sortBy}
-                            handleSortChange={handleSortChange}
-                            priceFilter={priceFilter}
-                            handlePriceFilterChange={handlePriceFilterChange}
-                            roomsFilter={roomsFilter}
-                            handleRoomsFilterChange={handleRoomsFilterChange}
-                            cityFilter={cityFilter}
-                            handleCityFilterChange={handleCityFilterChange}
-                        />
-                        <ListingsList properties={filteredProperties}/>
-                    </>
-                }/>
+        <UserHandler>
+            <div className="App">
+                <Routes>
+                    <Route path="/login" element={<LoginForm/>}/>
 
-                <Route path="/add" element={
-                    <PropertyForm handler={handleNewPropertySubmit}/>
-                }/>
-            </Routes>
-        </div>
+                    <Route exact path="/" element={
+                        <>
+                            <Navbar/>
+                            <FilterBar
+                                sortBy={sortBy}
+                                handleSortChange={handleSortChange}
+                                priceFilter={priceFilter}
+                                handlePriceFilterChange={handlePriceFilterChange}
+                                roomsFilter={roomsFilter}
+                                handleRoomsFilterChange={handleRoomsFilterChange}
+                                cityFilter={cityFilter}
+                                handleCityFilterChange={handleCityFilterChange}
+                            />
+                            <ListingsList properties={filteredProperties}/>
+                        </>
+                    }/>
+
+                    <Route path="/add" element={
+                        <PropertyForm handler={handleNewPropertySubmit}/>
+                    }/>
+                </Routes>
+            </div>
+        </UserHandler>
     );
 }
 
