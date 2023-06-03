@@ -1,4 +1,4 @@
-.dark-button{
+.light-button{
     align-self: center;
     background-color: #FFF8E4;
 }
@@ -34,4 +34,17 @@
 .red-text {
     color: red;
     font-weight: bold;
+}
+
+.button-container-email {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+}
+
+.redirect-button {
+    align-self: center;
+    background-color: yellow;
 }

@@ -1,34 +1,34 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {loginInWithEmail} from '../../Firebase/UserService';
-import './LoginForm.css';
+import {registerWithEmail} from '../../Firebase/UserService';
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await loginInWithEmail(email, password)
+            await registerWithEmail(email, password)
                 .then(() => {
-                    navigate('/');
+                    navigate('/')
                 });
         } catch (err) {
             console.error({err});
-            alert('Invalid credentials');
+            alert(err.message);
         }
     };
 
-    const navigateToRegister = () => {
-        navigate('/register-form');
-    };
+    const navigateToLogin = () => {
+        navigate('/login-form');
+    }
 
-    const navigateToLogin= () => {
-        navigate('/login');
-    };
+    const navigateToHome = () => {
+        navigate('/');
+    }
 
     return (
         <div className='login-form-container'>
@@ -53,13 +53,13 @@ const LoginForm = () => {
                 </label>
 
                 <div className="button-container-email">
-                    <button type="submit" className="btn light-button">Sign in</button>
-                    <button className="btn redirect-button" onClick={navigateToRegister}>Register</button>
-                    <button className="btn cancel-button" onClick={navigateToLogin}>Cancel</button>
+                    <button type="submit" className="btn light-button">Register</button>
+                    <button className="btn redirect-button" onClick={navigateToLogin}>Login</button>
+                    <button className="btn cancel-button" onClick={navigateToHome}>Cancel</button>
                 </div>
             </form>
         </div>
     );
 };
 
-export default LoginForm;
+export default RegisterForm;

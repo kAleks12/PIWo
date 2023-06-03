@@ -1,0 +1,16 @@
+.login-method-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 0.5rem;
+    padding: 2rem;
+    background-color: #a4b6dd;
+    border-radius: 1rem;
+    margin-top: 3rem;
+}
+
+.cancel-button {
+    align-self: center;
+    background-color: indianred;
+}

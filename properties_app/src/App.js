@@ -7,9 +7,10 @@ import './App.css';
 import ListingsList from './components/ListingsView/ListingsList';
 import PropertyForm from './components/AddingForm/AddListing';
 import Navbar from './components/Navbar/Navbar';
-import FilterBar from './components/FilterBar/FilterBar'
-import {UserHandler} from './components/LoginPage/UserContext';
+import FilterBar from './components/FilterBar/FilterBar';
+import Login from "./components/LoginMethod/Login";
 import LoginForm from "./components/LoginPage/LoginForm";
+import RegisterForm from "./components/Register/RegisterForm";
 
 
 function App() {
@@ -75,34 +76,40 @@ function App() {
 
 
     return (
-        <UserHandler>
-            <div className="App">
-                <Routes>
-                    <Route path="/login" element={<LoginForm/>}/>
+        <div className="App">
+            <Routes>
+                <Route path="/login" element={<Login/>}/>
 
-                    <Route exact path="/" element={
-                        <>
-                            <Navbar/>
-                            <FilterBar
-                                sortBy={sortBy}
-                                handleSortChange={handleSortChange}
-                                priceFilter={priceFilter}
-                                handlePriceFilterChange={handlePriceFilterChange}
-                                roomsFilter={roomsFilter}
-                                handleRoomsFilterChange={handleRoomsFilterChange}
-                                cityFilter={cityFilter}
-                                handleCityFilterChange={handleCityFilterChange}
-                            />
-                            <ListingsList properties={filteredProperties}/>
-                        </>
-                    }/>
+                <Route exact path="/" element={
+                    <>
+                        <Navbar/>
+                        <FilterBar
+                            sortBy={sortBy}
+                            handleSortChange={handleSortChange}
+                            priceFilter={priceFilter}
+                            handlePriceFilterChange={handlePriceFilterChange}
+                            roomsFilter={roomsFilter}
+                            handleRoomsFilterChange={handleRoomsFilterChange}
+                            cityFilter={cityFilter}
+                            handleCityFilterChange={handleCityFilterChange}
+                        />
+                        <ListingsList properties={filteredProperties}/>
+                    </>
+                }/>
 
-                    <Route path="/add" element={
-                        <PropertyForm handler={handleNewPropertySubmit}/>
-                    }/>
-                </Routes>
-            </div>
-        </UserHandler>
+                <Route path="/add" element={
+                    <PropertyForm handler={handleNewPropertySubmit}/>
+                }/>
+
+                <Route path="/login-form" element={
+                    <LoginForm/>
+                }/>
+
+                <Route path="/register-form" element={
+                    <RegisterForm/>
+                }/>
+            </Routes>
+        </div>
     );
 }
 

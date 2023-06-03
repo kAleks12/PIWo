@@ -1,22 +1,16 @@
-import React, {useContext} from "react";
 import {useNavigate} from 'react-router-dom';
-import {UserContext} from '../LoginPage/UserContext';
+import {useUser, logout} from '../../Firebase/UserService';
 import './Navbar.css';
 
 function Navbar() {
     const navigate = useNavigate();
-    const {user, logoutFunc} = useContext(UserContext);
-
+    const user = useUser();
     const handleAddNewClick = () => {
         navigate('/add');
     };
 
     const handleLoginRedirect = () => {
         navigate('/login');
-    };
-
-    const handleLogout = () => {
-        logoutFunc();
     };
 
     return (
@@ -29,9 +23,9 @@ function Navbar() {
                     {user ? (
                         <div className="user-info">
                             <div className='user-logged'>
-                                Hello, {user.firstName} {user.lastName}!
+                                Hello, {user.displayName ? user.displayName : user.email}!
                             </div>
-                            <button className="btn btn-outline-light" onClick={handleLogout}>Log out</button>
+                            <button className="btn btn-outline-light" onClick={logout}>Log out</button>
                         </div>
                     ) : (
                         <button className="btn btn-outline-light" onClick={handleLoginRedirect}>Log in</button>
